@@ -15,9 +15,14 @@ window.addEventListener("DOMContentLoaded", resetPageMinSize);
 </script>
 
 <template>
-  <RouterView :style="{ height: screenHeight }" />
+  <div id="app">
+    <RouterView :style="{ height: screenHeight }"></RouterView>
+  </div>
 </template>
 
 <style scoped>
-
+.app{
+  width: 100%;
+  height: 100%;
+}
 </style>
