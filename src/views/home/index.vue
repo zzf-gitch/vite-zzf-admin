@@ -10,11 +10,11 @@
                 </van-popover>
             </template>
             <template #right>
-                <van-icon name="qq" size="20" color="#181818" />
+                <van-icon name="down" size="20" color="#181818" @click="download" title="下载图片"/>
             </template>
         </NavBar>
 
-        <ImageGallery />
+        <ImageGallery ref="Image"/>
     </div>
 </template>
 
@@ -23,10 +23,11 @@ import NavBar from '../../components/NavBar.vue'
 import { Icon as VanIcon } from 'vant'
 import { useRoute, useRouter } from "vue-router";
 import { ref, computed } from "vue";
+import html2canvas from 'html2canvas';
+import ImageGallery from '../../components/ImageGallery.vue'
 const { push, currentRoute } = useRouter()
 
 const avatar = ref(new URL(`@/assets/avatar.png`, import.meta.url).href)
-console.log(currentRoute.value.fullPath);
 
 /** 头像下拉框 */
 const showPopover = ref(false);
@@ -58,6 +59,12 @@ const offsetX = computed(() => {
 
     return (clientWidth - bodyWidth) / 2 + 8;
 });
+
+// 下载图片
+const Image = ref(null);
+const download = async () => {
+    Image.value.download()
+}
 </script>
 
 <style scoped>

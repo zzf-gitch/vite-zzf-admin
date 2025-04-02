@@ -1,16 +1,16 @@
 <template>
     <div class="container">
-        <div class="battle-section">
+        <div class="battle-section" ref="battle">
             <div class="player-vs">
                 <div class="player">
-                    <img class="avatar" :src="Images[0].src" :alt="Images[0].alt" @click="showImg(0)" />
+                    <img class="avatar" :src="url('left')" :alt="Images[0].alt" @click="showImg(0)" />
                 </div>
                 <div class="vs-text">
                     <span class="v-text">V</span>
                     <span class="s-text">S</span>
                 </div>
                 <div class="player">
-                    <img class="avatar" :src="Images[1].src" :alt="Images[1].alt" @click="showImg(1)" />
+                    <img class="avatar" :src="url('right')" :alt="Images[1].alt" @click="showImg(1)" />
                 </div>
             </div>
             <div class="divider"></div>
@@ -22,34 +22,41 @@
                 <div class="player-result">
                     <span class="win-text">胜北</span>
                     <div class="player">
-                        <img class="avatar" :src="Images[0].src" :alt="Images[0].alt" @click="showImg(0)" />
+                        <img class="avatar" :src="url('left')" :alt="Images[0].alt" @click="showImg(0)" />
                     </div>
                 </div>
                 <div class="player-result">
                     <span class="lose-text">负北</span>
                     <div class="player">
-                        <img class="avatar" :src="Images[1].src" :alt="Images[1].alt" @click="showImg(1)" />
+                        <img class="avatar" :src="url('right')" :alt="Images[1].alt" @click="showImg(1)" />
                     </div>
                 </div>
             </div>
             <div class="divider"></div>
             <div class="mvp-section">
                 <span class="mvp-text">MVP结算画面</span>
-                <!-- <img class="mvp" :src="Images[2].src" :alt="Images[2].alt" @click="showImg(2)" /> -->
+                <img class="mvp" :src="url('MVP')" :alt="Images[2].alt" @click="showImg(2)" />
             </div>
-            <VideoPlayer :videoSrc="MVP" />
+            <!-- <VideoPlayer :videoSrc="MVP" /> -->
         </div>
     </div>
     <vue-easy-lightbox :visible="visible" :imgs="Images" :index="index" @hide="handleHide"></vue-easy-lightbox>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, defineExpose } from 'vue'
+import { showToast } from 'vant'
 import VueEasyLightbox from 'vue-easy-lightbox'
 import MVP from '@/assets/MVP.mp4'
+import { API_BASE_URL } from '@/config/setting';
+import html2canvas from 'html2canvas';
 
 const visible = ref(false)
 const index = ref(0)
+
+const url = (type) => {
+    return `${API_BASE_URL}/images/${type}.jpg`
+}
 
 const Images = ref([
     {
@@ -61,7 +68,7 @@ const Images = ref([
         title: '败方头像',
     },
     {
-        src: new URL(`@/assets/MVP.png`, import.meta.url).href,
+        src: new URL(`@/assets/MVP.jpg`, import.meta.url).href,
         title: 'MVP结算画面',
     }
 ])
@@ -74,6 +81,34 @@ const showImg = (i) => {
 const handleHide = () => {
     visible.value = false
 }
+
+// 使用html2canvas下载图片
+const battle = ref(null)
+const imageUrl = ref('');
+const download = async () => {
+    try {
+        const canvas = await html2canvas(battle.value, {
+            backgroundColor: '#fff2f5',  // 画布背景色
+            scale: 2,              // 提升分辨率
+            useCORS: true          // 处理跨域图片
+        });
+
+        // 转换为图片URL
+        imageUrl.value = canvas.toDataURL('image/png');
+
+        // 自动下载
+        const link = document.createElement('a');
+        link.download = 'VS.png';
+        link.href = imageUrl.value;
+        link.click();
+        showToast('图片下载成功');
+    } catch (error) {
+        console.error('生成图片失败:', error);
+        showToast('生成图片失败');
+    }
+}
+
+defineExpose({ download })
 </script>
 
 <style scoped>
