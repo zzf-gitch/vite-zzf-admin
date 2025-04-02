@@ -62,10 +62,9 @@ const offsetX = computed(() => {
 
 <style scoped>
 .home {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .Login_avatar {

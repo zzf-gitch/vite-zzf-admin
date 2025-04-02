@@ -35,8 +35,9 @@
             <div class="divider"></div>
             <div class="mvp-section">
                 <span class="mvp-text">MVP结算画面</span>
-                <img class="mvp" :src="Images[2].src" :alt="Images[2].alt" @click="showImg(2)" />
+                <!-- <img class="mvp" :src="Images[2].src" :alt="Images[2].alt" @click="showImg(2)" /> -->
             </div>
+            <VideoPlayer :videoSrc="MVP" />
         </div>
     </div>
     <vue-easy-lightbox :visible="visible" :imgs="Images" :index="index" @hide="handleHide"></vue-easy-lightbox>
@@ -45,6 +46,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import VueEasyLightbox from 'vue-easy-lightbox'
+import MVP from '@/assets/MVP.mp4'
 
 const visible = ref(false)
 const index = ref(0)
@@ -192,5 +194,9 @@ const handleHide = () => {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+img {
+    cursor: pointer;
 }
 </style>

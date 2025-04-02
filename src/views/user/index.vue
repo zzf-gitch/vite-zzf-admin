@@ -28,12 +28,11 @@ const handleReturn = () => {
 
 <style scoped>
 .user {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(180deg, #fff5f5 0%, #fff0f5 100%);
 }
 
 h1 {

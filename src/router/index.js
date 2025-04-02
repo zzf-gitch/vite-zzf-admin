@@ -12,7 +12,7 @@ const routes = [
                 name: 'Home',
                 component: () => import('../views/home/index.vue'),
                 meta: {
-                    title: "首页VS",
+                    title: "九子夺嫡",
                 }
             },
             {

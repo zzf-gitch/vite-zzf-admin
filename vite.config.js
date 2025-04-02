@@ -17,7 +17,10 @@ export default defineConfig((command) => {
     },
     optimizeDeps: {
       include: [
-        'vue-easy-lightbox'
+        'vue-easy-lightbox',
+        'video.js/core',
+        'video.js/tech/html5',
+        'video.js/dist/video-js.css',
       ]
     },
   }
