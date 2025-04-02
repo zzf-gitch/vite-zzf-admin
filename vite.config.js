@@ -8,6 +8,7 @@ export default defineConfig((command) => {
     '@/': resolve('src') + '/',
   };
   return {
+    base:'/vite-zzf-admin/',
     plugins: [vue()],
     resolve: { alias },
     server: {

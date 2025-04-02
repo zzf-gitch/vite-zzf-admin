@@ -60,15 +60,18 @@ const url = (type) => {
 
 const Images = ref([
     {
-        src: new URL(`@/assets/left.jpg`, import.meta.url).href,
+        // src: new URL(`@/assets/left.jpg`, import.meta.url).href,
+        src: url('left'),
         title: '胜方头像',
     },
     {
-        src: new URL(`@/assets/right.jpg`, import.meta.url).href,
+        // src: new URL(`@/assets/right.jpg`, import.meta.url).href,
+        src: url('right'),
         title: '败方头像',
     },
     {
-        src: new URL(`@/assets/MVP.jpg`, import.meta.url).href,
+        // src: new URL(`@/assets/MVP.jpg`, import.meta.url).href,
+        src: url('MVP'),
         title: 'MVP结算画面',
     }
 ])
