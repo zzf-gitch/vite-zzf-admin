@@ -3,14 +3,14 @@
         <div class="battle-section" ref="battle">
             <div class="player-vs">
                 <div class="player">
-                    <img class="avatar" :src="url('left') + '?timestamp=' + Math.random()*new Date().getTime()" :alt="Images[0].alt" @click="showImg(0)" />
+                    <img class="avatar" :src="url('left')" :alt="Images[0].alt" @click="showImg(0)" />
                 </div>
                 <div class="vs-text">
                     <span class="v-text">V</span>
                     <span class="s-text">S</span>
                 </div>
                 <div class="player">
-                    <img class="avatar" :src="url('right') + '?timestamp=' + Math.random()*new Date().getTime()" :alt="Images[1].alt" @click="showImg(1)" />
+                    <img class="avatar" :src="url('right')" :alt="Images[1].alt" @click="showImg(1)" />
                 </div>
             </div>
             <div class="divider"></div>
@@ -22,20 +22,20 @@
                 <div class="player-result">
                     <span class="win-text">胜北</span>
                     <div class="player">
-                        <img class="avatar" :src="url('left') + '?timestamp=' + Math.random()*new Date().getTime()" :alt="Images[0].alt" @click="showImg(0)" />
+                        <img class="avatar" :src="url('left')" :alt="Images[0].alt" @click="showImg(0)" />
                     </div>
                 </div>
                 <div class="player-result">
                     <span class="lose-text">负北</span>
                     <div class="player">
-                        <img class="avatar" :src="url('right') + '?timestamp=' + Math.random()*new Date().getTime()" :alt="Images[1].alt" @click="showImg(1)" />
+                        <img class="avatar" :src="url('right')" :alt="Images[1].alt" @click="showImg(1)" />
                     </div>
                 </div>
             </div>
             <div class="divider"></div>
             <div class="mvp-section">
                 <span class="mvp-text">MVP结算画面</span>
-                <img class="mvp" :src="url('MVP') + '?timestamp=' + Math.random()*new Date().getTime()" :alt="Images[2].alt" @click="showImg(2)" />
+                <img class="mvp" :src="url('MVP')" :alt="Images[2].alt" @click="showImg(2)" />
             </div>
             <!-- <VideoPlayer :videoSrc="MVP" /> -->
         </div>
@@ -55,23 +55,23 @@ const visible = ref(false)
 const index = ref(0)
 
 const url = (type) => {
-    return `${API_BASE_URL}/images/${type}.jpg`
+    return `${API_BASE_URL}/images/${type}.jpg?timestamp=${Math.random()*new Date().getTime()}`
 }
 
 const Images = ref([
     {
         // src: new URL(`@/assets/left.jpg`, import.meta.url).href,
-        src: url('left') + '?timestamp=' + Math.random()*new Date().getTime(),
+        src: url('left'),
         title: '胜方头像',
     },
     {
         // src: new URL(`@/assets/right.jpg`, import.meta.url).href,
-        src: url('right') + '?timestamp=' + Math.random()*new Date().getTime(),
+        src: url('right'),
         title: '败方头像',
     },
     {
         // src: new URL(`@/assets/MVP.jpg`, import.meta.url).href,
-        src: url('MVP') + '?timestamp=' + Math.random()*new Date().getTime(),
+        src: url('MVP'),
         title: 'MVP结算画面',
     }
 ])
