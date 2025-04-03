@@ -42,7 +42,7 @@
 import NavBar from '../../components/NavBar.vue'
 import { Icon as VanIcon, Uploader as VanUploader, showToast } from 'vant'
 import { useRoute, useRouter } from "vue-router";
-import { ref , inject } from 'vue';
+import { ref } from 'vue';
 import { upload_avatar } from "@/api/upload";
 
 const router = useRouter();
@@ -51,7 +51,6 @@ const rightFileList = ref([]);
 const mvpFileList = ref([]);
 
 // 返回
-const reload = inject('reload')
 const handleReturn = () => {
     if (window.history.length <= 1) {
         // 没有上一页可回退则跳转首页
@@ -59,7 +58,6 @@ const handleReturn = () => {
     } else {
         router.back();
     }
-    reload()
 };
 
 // 上传前校验

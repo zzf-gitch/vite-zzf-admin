@@ -22,10 +22,11 @@
 import NavBar from '../../components/NavBar.vue'
 import { Icon as VanIcon } from 'vant'
 import { useRoute, useRouter } from "vue-router";
-import { ref, computed } from "vue";
+import { ref, computed, inject } from "vue";
 import html2canvas from 'html2canvas';
 import ImageGallery from '../../components/ImageGallery.vue'
 const { push, currentRoute } = useRouter()
+const route = useRoute();
 
 const avatar = ref(new URL(`@/assets/avatar.png`, import.meta.url).href)
 
@@ -33,17 +34,20 @@ const avatar = ref(new URL(`@/assets/avatar.png`, import.meta.url).href)
 const showPopover = ref(false);
 const actions = ref([
     { text: "个人中心", icon: "user-o" },
-    { text: "关闭系统", icon: "replay" },
+    { text: "刷新", icon: "replay" },
 ]);
+
+const reload = inject('reload');
 
 const toggTab = (action) => {
     switch (action.text) {
         case "个人中心":
             push({ path: '/user' })
             break;
-        case "关闭系统":
+        case "刷新":
             // window.close();
-            window.location.href = "about:blank";
+            reload()
+            // window.location.href = "about:blank";
             break;
     }
 };

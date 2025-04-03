@@ -1,8 +1,10 @@
 <script setup>
-import { ref , provide , nextTick } from 'vue'
-import { RouterView } from "vue-router";
+import { ref, provide, nextTick } from 'vue'
+import { RouterView , useRoute , useRouter } from "vue-router";
 
 const screenHeight = ref(667 + "px"); // 页面高度
+
+const route = useRoute();
 
 // 重新设置页面 size
 const resetPageMinSize = () => {
@@ -24,7 +26,10 @@ provide('reload', reload)
 
 <template>
   <div id="app">
-    <RouterView :style="{ height: screenHeight }" v-if="isRouterActive"></RouterView>
+      <!-- <RouterView :style="{ height: screenHeight }" #default="{ Component, route }">
+        <component :is="Component" :key="route.fullPath" />
+      </RouterView> -->
+      <RouterView :style="{ height: screenHeight }" v-if="isRouterActive"></RouterView>
   </div>
 </template>
 
