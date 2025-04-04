@@ -55,7 +55,7 @@ const visible = ref(false)
 const index = ref(0)
 
 const url = (type) => {
-    return `${API_BASE_URL}/images/${type}.jpg?timestamp=${Math.random()*new Date().getTime()}`
+    return `${API_BASE_URL}/images/${type}.jpg?timestamp=${Math.random() * new Date().getTime()}`
 }
 
 const Images = ref([
@@ -121,6 +121,21 @@ defineExpose({ download })
     justify-content: center;
     align-items: center;
     background: linear-gradient(180deg, #fff5f5 0%, #fff0f5 100%);
+    /* PC端移动端自适应 */
+    padding: calc(var(--navbar-height)) 10px 0 10px;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    /* firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+    /* Chrome Safari */
 }
 
 .battle-section {
@@ -131,7 +146,8 @@ defineExpose({ download })
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 20px;
+    /* PC端移动端自适应 */
+    padding: calc(var(--navbar-height) + 30px) 0 20px 0;
 }
 
 .player-vs {

@@ -1,6 +1,7 @@
 <script setup>
 import { ref, provide, nextTick } from 'vue'
 import { RouterView , useRoute , useRouter } from "vue-router";
+import ParticlesBackground from './components/ParticlesBackground.vue';
 
 const screenHeight = ref(667 + "px"); // 页面高度
 
@@ -29,6 +30,7 @@ provide('reload', reload)
       <!-- <RouterView :style="{ height: screenHeight }" #default="{ Component, route }">
         <component :is="Component" :key="route.fullPath" />
       </RouterView> -->
+      <ParticlesBackground />
       <RouterView :style="{ height: screenHeight }" v-if="isRouterActive"></RouterView>
   </div>
 </template>

@@ -86,6 +86,8 @@ const afterRead = async (file, type) => {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    position: relative;
+    z-index: 9;
     background: linear-gradient(180deg, #fff5f5 0%, #fff0f5 100%);
 }
 </style>

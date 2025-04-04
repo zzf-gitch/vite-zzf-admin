@@ -22,6 +22,9 @@ export default defineConfig((command) => {
         'video.js/core',
         'video.js/tech/html5',
         'video.js/dist/video-js.css',
+        'tsparticles',
+        'particles.vue3',
+        'tsparticles-slim'
       ]
     },
   }

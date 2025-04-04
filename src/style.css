@@ -12,6 +12,11 @@
   padding: 0;
 }
 
+:root {
+  --navbar-height: 46px; /* 导航栏高度, vant 默认高度 */
+  --tabbar-height: 50px; /* 底部标签栏高度, vant 默认高度 */
+}
+
 /* 移动端样式 */
 @media screen and (max-width: 767px) {
   html, body {
