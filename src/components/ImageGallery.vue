@@ -13,11 +13,11 @@
                     <img class="avatar" :src="url('right')" :alt="Images[1].alt" @click="showImg(1)" />
                 </div>
             </div>
-            <div class="divider"></div>
+            <div class="divider">&nbsp;</div>
             <div class="battle-status">
                 <span class="status-text">战绩待揭晓</span>
             </div>
-            <div class="divider"></div>
+            <div class="divider">&nbsp;</div>
             <div class="result-section">
                 <div class="player-result">
                     <span class="win-text">胜北</span>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="divider"></div>
+            <div class="divider">&nbsp;</div>
             <div class="mvp-section">
                 <span class="mvp-text">MVP结算画面</span>
                 <img class="mvp" :src="url('MVP')" :alt="Images[2].alt" @click="showImg(2)" />
@@ -116,26 +116,12 @@ defineExpose({ download })
 
 <style scoped>
 .container {
-    flex: 1;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
     background: linear-gradient(180deg, #fff5f5 0%, #fff0f5 100%);
     /* PC端移动端自适应 */
     padding: calc(var(--navbar-height)) 10px 0 10px;
-    overflow: hidden;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    /* firefox */
-    -ms-overflow-style: none;
-    /* IE 10+ */
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.container::-webkit-scrollbar {
-    display: none;
-    /* Chrome Safari */
 }
 
 .battle-section {
@@ -146,8 +132,20 @@ defineExpose({ download })
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    /* PC端移动端自适应 */
-    padding: calc(var(--navbar-height) + 30px) 0 20px 0;
+    padding: 20px 0;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    /* firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.battle-section::-webkit-scrollbar {
+    display: none;
+    /* Chrome Safari */
 }
 
 .player-vs {

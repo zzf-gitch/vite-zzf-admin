@@ -25,6 +25,11 @@
     height: 100%; /* 移动端高度 */
     margin: 0 auto; /* 居中显示 */
     overflow: hidden; /* 防止滚动 */
+    position: fixed; /* 固定位置 */
+    touch-action: none; /* 禁止触摸事件 */
+    width: 100%; /* 确保宽度填满 */
+    top: 0; /* 固定到顶部 */
+    left: 0; /* 固定到左侧 */
   }
 }
 
