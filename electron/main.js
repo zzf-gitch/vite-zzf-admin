@@ -4,11 +4,15 @@ const path = require('path');
 // CommonJS 中 __dirname 是内置变量，可以直接使用
 console.log('process.env.NODE_ENV: ', process.env.NODE_ENV);
 
+const isDev = process.env.NODE_ENV === 'production'; // 或者使用 cross-env 设置一个如 ELECTRON_ENV=development
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
-    icon: path.join(__dirname, '../public/zzf.ico'), // 确认图标路径相对于 electron/main.js
+    icon: isDev 
+      ? path.join(__dirname, '../public/zzf.ico')
+      : path.join(__dirname, '../dist/vite-zzf-admin.ico'), // 替换为你的图标路径
     webPreferences: {
       nodeIntegration: true, // 注意安全风险，生产环境建议关闭或使用 preload
       contextIsolation: false // 同上
@@ -17,7 +21,6 @@ function createWindow() {
 
   // 开发环境下加载本地服务
   // 检查 NODE_ENV，或者你可以设置一个专门的开发环境变量
-  const isDev = process.env.NODE_ENV === 'production'; // 或者使用 cross-env 设置一个如 ELECTRON_ENV=development
   console.log(`Is development environment? ${isDev}`); // 添加日志确认环境判断
 
   if (isDev) {

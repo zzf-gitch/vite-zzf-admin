@@ -1,14 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "xxvsxx",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite --host --open",
-    "build": "vite build",
-    "preview": "vite preview"
-=======
   "name": "vite-zzf-admin",
   "private": true,
   "version": "0.0.0",
@@ -19,7 +9,6 @@
     "preview": "vite preview",
     "electron:dev": "cross-env NODE_ENV=development concurrently \"vite dev\" \"electron electron/main.js\"",
     "electron:build": "concurrently \"vite build\" \"electron electron/main.js\" \"electron-builder build --win --x64\""
->>>>>>> de232ea (vite项目改成electron桌面端应用)
   },
   "dependencies": {
     "axios": "^1.8.4",
@@ -36,9 +25,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
-<<<<<<< HEAD
-    "vite": "^6.2.0"
-=======
     "concurrently": "^9.1.2",
     "cross-env": "^7.0.3",
     "electron": "^35.2.1",
@@ -79,6 +65,5 @@
       "createStartMenuShortcut": true,
       "shortcutName": "vite-zzf-admin"
     }
->>>>>>> de232ea (vite项目改成electron桌面端应用)
   }
 }
