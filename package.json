@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "xxvsxx",
   "private": true,
   "version": "0.0.0",
@@ -7,6 +8,18 @@
     "dev": "vite --host --open",
     "build": "vite build",
     "preview": "vite preview"
+=======
+  "name": "vite-zzf-admin",
+  "private": true,
+  "version": "0.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite --host --open",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:dev": "cross-env NODE_ENV=development concurrently \"vite dev\" \"electron electron/main.js\"",
+    "electron:build": "concurrently \"vite build\" \"electron electron/main.js\" \"electron-builder build --win --x64\""
+>>>>>>> de232ea (vite项目改成electron桌面端应用)
   },
   "dependencies": {
     "axios": "^1.8.4",
@@ -23,6 +36,49 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
+<<<<<<< HEAD
     "vite": "^6.2.0"
+=======
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^35.2.1",
+    "electron-builder": "^26.0.12",
+    "vite": "^6.2.0"
+  },
+  "build": {
+    "appId": "com.zzf.app",
+    "productName": "vite-zzf-admin",
+    "copyright": "zzf © 2025",
+    "win": {
+      "icon": "public/zzf.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "files": [
+      "./dist",
+      "./electron/main.js"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "public/zzf.ico",
+      "uninstallerIcon": "public/zzf.ico",
+      "installerHeaderIcon": "public/zzf.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "vite-zzf-admin"
+    }
+>>>>>>> de232ea (vite项目改成electron桌面端应用)
   }
 }

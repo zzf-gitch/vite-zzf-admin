@@ -1,6 +1,10 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+<<<<<<< HEAD
 import { resolve } from 'path';
+=======
+import { resolve } from 'path'
+>>>>>>> de232ea (vite项目改成electron桌面端应用)
 
 // https://vite.dev/config/
 export default defineConfig((command) => {
@@ -27,5 +31,9 @@ export default defineConfig((command) => {
         'tsparticles-slim'
       ]
     },
+<<<<<<< HEAD
+=======
+    base: './',
+>>>>>>> de232ea (vite项目改成electron桌面端应用)
   }
 })

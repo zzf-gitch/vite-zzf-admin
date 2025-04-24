@@ -28,6 +28,10 @@ const routes = [
 ]
 
 const router = createRouter({
+<<<<<<< HEAD
+=======
+    // history: createWebHistory(), // 切换到 Hash 模式
+>>>>>>> de232ea (vite项目改成electron桌面端应用)
     history: createWebHashHistory(),
     routes
 })
