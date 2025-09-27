@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { setPageTitle } from '@/utils/page-title-util.js';
 import { REDIRECT_PATH } from '@/config/setting';
 
@@ -21,6 +21,22 @@ const routes = [
                 component: () => import('../views/user/index.vue'),
                 meta: {
                     title: "个人中心",
+                }
+            },
+            {
+                path: '/WebAssembly',
+                name: 'Wasm',
+                component: () => import('../views/WebAssembly/index.vue'),
+                meta: {
+                    title: "WebAssembly加解密"
+                }
+            },
+            {
+                path: '/HighConcurrencyDemo',
+                name: 'HighConcurrencyDemo',
+                component: () => import('../views/HighConcurrency/HighConcurrencyDemo.vue'),
+                meta: {
+                    title: "高并发处理演示"
                 }
             }
         ]

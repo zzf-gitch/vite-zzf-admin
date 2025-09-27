@@ -34,6 +34,8 @@ const avatar = ref(new URL(`@/assets/avatar.png`, import.meta.url).href)
 const showPopover = ref(false);
 const actions = ref([
     { text: "个人中心", icon: "user-o" },
+    { text: "Wasm", icon: "user-o" },
+    { text: "高并发", icon: "user-o" },
     { text: "刷新", icon: "replay" },
 ]);
 
@@ -48,6 +50,12 @@ const toggTab = (action) => {
             // window.close();
             reload()
             // window.location.href = "about:blank";
+            break;
+        case "Wasm":
+            push({ path: '/WebAssembly' })
+            break;
+        case "高并发":
+            push({ path: '/HighConcurrencyDemo' })
             break;
     }
 };
